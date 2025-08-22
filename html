@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nandish Shivabasava Bellad - Data Analyst</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+            color: #000000; /* slate-700 */
+        }
+        .section-title {
+            @apply text-3xl font-bold text-slate-800 mb-8 text-center;
+        }
+        .card {
+            @apply bg-white rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl;
+        }
+        .fade-in-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Modal styles */
+        .modal-backdrop {
+            @apply fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 transition-opacity duration-300;
+        }
+        .modal-content {
+            @apply bg-white rounded-lg shadow-xl p-8 max-w-2xl w-full transform transition-transform duration-300 scale-95;
+        }
+        .modal-enter {
+            opacity: 0;
+        }
+        .modal-enter-active {
+            opacity: 1;
+        }
+        .modal-leave-active {
+            opacity: 0;
+        }
+        .modal-leave-active .modal-content {
+           transform: scale(0.95);
+        }
+        .loader {
+            border: 4px solid #f3f3f3; /* Light grey */
+            border-top: 4px solid #4f46e5; /* Indigo */
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white/80 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 shadow-md">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-slate-800">Nandish S. Bellad</a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#about" class="text-slate-600 hover:text-indigo-600 transition-colors">About</a>
+                <a href="#skills" class="text-slate-600 hover:text-indigo-600 transition-colors">Skills</a>
+                <a href="#experience" class="text-slate-600 hover:text-indigo-600 transition-colors">Experience</a>
+                <a href="#projects" class="text-slate-600 hover:text-indigo-600 transition-colors">Projects</a>
+                <a href="#contact" class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-all">Contact</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-slate-800">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a href="#about" class="block py-2 text-slate-600 hover:text-indigo-600">About</a>
+            <a href="#skills" class="block py-2 text-slate-600 hover:text-indigo-600">Skills</a>
+            <a href="#experience" class="block py-2 text-slate-600 hover:text-indigo-600">Experience</a>
+            <a href="#projects" class="block py-2 text-slate-600 hover:text-indigo-600">Projects</a>
+            <a href="#contact" class="block mt-2 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 text-center">Contact</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-24">
+        <!-- Hero Section -->
+        <section id="hero" class="container mx-auto px-6 py-20 md:py-32 text-center">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="text-4xl md:text-6xl font-bold text-slate-900 mb-4 leading-tight">Insight-Driven Data Analyst & Scientist</h1>
+                <p class="text-lg md:text-xl text-slate-600 mb-8 max-w-2xl mx-auto">
+                    Transforming complex data into actionable insights and compelling narratives that drive business value.
+                </p>
+                <div class="flex justify-center space-x-4">
+                    <a href="#projects" class="bg-indigo-600 text-white px-8 py-3 rounded-lg font-semibold text-lg hover:bg-indigo-700 transition-all transform hover:scale-105">View My Work</a>
+                    <a href="Nandish Shivabasava Bellad.pdf" download class="bg-white text-indigo-600 px-8 py-3 rounded-lg font-semibold text-lg border border-indigo-200 hover:bg-indigo-50 transition-all transform hover:scale-105">Download Resume</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Me -->
+        <section id="about" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-5 gap-12 items-center">
+                    <div class="md:col-span-2 fade-in-on-scroll">
+                        <div class="p-2 bg-gradient-to-br from-indigo-200 to-blue-200 rounded-full">
+                           <img src="https://placehold.co/400x400/E0E7FF/4F46E5?text=NSB" alt="Nandish Shivabasava Bellad" class="rounded-full shadow-lg w-full">
+                        </div>
+                    </div>
+                    <div class="md:col-span-3 fade-in-on-scroll">
+                        <h2 class="section-title text-left">About Me</h2>
+                        <p class="text-slate-600 mb-4">
+                            I am a passionate and detail-oriented Data Analyst with over 3 years of experience specializing in converting multimillion-row datasets into actionable, revenue-lifting insights. My journey in data began with a fascination for uncovering hidden patterns and has evolved into a career dedicated to building predictive models and creating intuitive, automated dashboards that shorten decision cycles.
+                        </p>
+                        <p class="text-slate-600 mb-6">
+                            With a Master's in Management Information Systems from the University of Illinois at Chicago and a strong foundation in SQL, Python, and data visualization tools, I thrive on tackling complex business problems. I excel at communicating technical findings to both C-suite executives and cross-functional teams, ensuring that data-driven strategies are not only understood but also effectively implemented. I am actively seeking a full-time role in the U.S. where I can apply my statistical rigor and data storytelling skills to create measurable value.
+                        </p>
+                         <div class="flex space-x-4">
+                            <a href="mailto:nandishsbellad@gmail.com" class="text-slate-500 hover:text-indigo-600">
+                                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path></svg>
+                            </a>
+                            <a href="https://www.linkedin.com/in/nandish-s-bellad/" target="_blank" rel="noopener noreferrer" class="text-slate-500 hover:text-indigo-600">
+                                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zm-7 5.07h-2.56v7.37H9.44V8.07H6.88V6.39h5.12v1.68zM17.12 8.93c-1.14 0-1.8.66-2.1 1.22h-.03v-1.08h-2.5V15.44h2.6v-3.73c0-.98.24-1.93 1.4-1.93s1.16.95 1.16 1.99v3.67h2.6V12.1c0-2.2-1.2-3.17-2.77-3.17z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title fade-in-on-scroll">Technical Skills</h2>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <div class="fade-in-on-scroll">
+                        <h3 class="text-xl font-semibold text-slate-800 mb-4">Programming</h3>
+                        <ul class="space-y-2">
+                            <li class="flex items-center"><span class="text-indigo-500 mr-2">◆</span>Python (Pandas, NumPy, Scikit-learn, PySpark)</li>
+                            <li class="flex items-center"><span class="text-indigo-500 mr-2">◆</span>R</li>
+                            <li class="flex items-center"><span class="text-indigo-500 mr-2">◆</span>SQL (PostgreSQL, MySQL, Oracle)</li>
+                            <li class="flex items-center"><span class="text-indigo-500 mr-2">◆</span>Java</li>
+                        </ul>
+                    </div>
+                    <div class="fade-in-on-scroll">
+                        <h3 class="text-xl font-semibold text-slate-800 mb-4">Visualization</h3>
+                        <ul class="space-y-2">
+                            <li class="flex items-center"><span class="text-indigo-500 mr-2">◆</span>Tableau</li>
+                            <li class="flex items-center"><span class="text-indigo-500 mr-2">◆</span>Power BI</li>
+                            <li class="flex items-center"><span class="text-indigo-500 mr-2">◆</span>Matplotlib</li>
+                            <li class="flex items-center"><span class="text-indigo-500 mr-2">◆</span>Seaborn</li>
+                        </ul>
+                    </div>
+                    <div class="fade-in-on-scroll">
+                        <h3 class="text-xl font-semibold text-slate-800 mb-4">ML & Statistics</h3>
+                        <ul class="space-y-2">
+                            <li class="flex items-center"><span class="text-indigo-500 mr-2">◆</span>Regression & Classification</li>
+                            <li class="flex items-center"><span class="text-indigo-500 mr-2">◆</span>Clustering & Time-Series</li>
+                            <li class="flex items-center"><span class="text-indigo-500 mr-2">◆</span>Prophet, ARIMA, XGBoost</li>
+                            <li class="flex items-center"><span class="text-indigo-500 mr-2">◆</span>Feature Engineering & Model Evaluation</li>
+                        </ul>
+                    </div>
+                    <div class="fade-in-on-scroll">
+                        <h3 class="text-xl font-semibold text-slate-800 mb-4">Data Engineering & Cloud</h3>
+                        <ul class="space-y-2">
+                            <li class="flex items-center"><span class="text-indigo-500 mr-2">◆</span>AWS (Glue, Redshift, S3, IAM)</li>
+                            <li class="flex items-center"><span class="text-indigo-500 mr-2">◆</span>ETL & Data Warehousing</li>
+                            <li class="flex items-center"><span class="text-indigo-500 mr-2">◆</span>Git & Snowflake</li>
+                             <li class="flex items-center"><span class="text-indigo-500 mr-2">◆</span>Excel (Power Query, VBA)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title fade-in-on-scroll">Work Experience</h2>
+                <div class="max-w-3xl mx-auto">
+                    <div class="relative">
+                        <!-- Vertical line -->
+                        <div class="absolute left-5 top-0 h-full w-0.5 bg-slate-200"></div>
+                        
+                        <!-- Experience Item 1 -->
+                        <div class="relative pl-12 mb-12 fade-in-on-scroll">
+                            <div class="absolute left-0 top-1.5 w-5 h-5 bg-indigo-500 rounded-full border-4 border-white"></div>
+                            <p class="text-sm text-slate-500">Aug 2024 - Present</p>
+                            <h3 class="text-xl font-bold text-slate-800">Graduate Teaching Assistant</h3>
+                            <p class="font-medium text-slate-600 mb-2">University of Illinois at Chicago</p>
+                            <ul class="list-disc list-inside text-slate-600 space-y-1">
+                                <li>Guided 150+ students in SQL, ER-modeling, and database normalization, resulting in a 15% increase in quiz scores.</li>
+                                <li>Mentored students for the AWS Academy Data Engineering certificate, achieving a 90% cohort pass rate.</li>
+                                <li>Collaborated with professors to integrate real-world datasets, enhancing course relevance.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Experience Item 2 -->
+                        <div class="relative pl-12 fade-in-on-scroll">
+                            <div class="absolute left-0 top-1.5 w-5 h-5 bg-indigo-500 rounded-full border-4 border-white"></div>
+                            <p class="text-sm text-slate-500">Oct 2021 - Dec 2023</p>
+                            <h3 class="text-xl font-bold text-slate-800">Business Operations Analyst</h3>
+                            <p class="font-medium text-slate-600 mb-2">Shiva HP Gas Agency</p>
+                             <ul class="list-disc list-inside text-slate-600 space-y-1">
+                                <li>Directed logistics for a network serving 9000+ households, cutting delivery time by 18% through analytics.</li>
+                                <li>Built Tableau & Excel dashboards that boosted monthly revenue by 7% and accessory sales by 15%.</li>
+                                <li>Deployed ARIMA and XGBoost demand forecasts, improving planning accuracy by 25%.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title fade-in-on-scroll">Academic Projects</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project 1 -->
+                    <div class="card fade-in-on-scroll">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-slate-800 mb-2">Quantifying Engagement Drivers on YouTube</h3>
+                            <p class="text-slate-600 mb-4">Pioneered a framework to quantify factors driving engagement with mental health content, using an end-to-end pipeline with Python and Google's Gemini Pro LLM.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-indigo-100 text-indigo-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Gemini LLM</span>
+                                <span class="bg-indigo-100 text-indigo-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Python</span>
+                                <span class="bg-indigo-100 text-indigo-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Statsmodels</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 2 -->
+                    <div class="card fade-in-on-scroll">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-slate-800 mb-2">Predictive Modeling for CKD</h3>
+                            <p class="text-slate-600 mb-4">Engineered a predictive model for early Chronic Kidney Disease detection. Implemented SMOTE to handle class imbalance, improving recall from 15% to 85%.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Python</span>
+                                <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Scikit-learn</span>
+                                <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Pandas</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 3 -->
+                    <div class="card fade-in-on-scroll">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-slate-800 mb-2">Hotel Revenue Optimization</h3>
+                            <p class="text-slate-600 mb-4">Engineered an interactive Power BI dashboard for a hotel chain to analyze revenue and inform strategy, building KPIs like RevPAR, Occupancy Rate, and ADR.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-sky-100 text-sky-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Power BI</span>
+                                <span class="bg-sky-100 text-sky-800 text-xs font-medium px-2.5 py-0.5 rounded-full">DAX</span>
+                                <span class="bg-sky-100 text-sky-800 text-xs font-medium px-2.5 py-0.5 rounded-full">SQL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gemini Project Idea Generator -->
+        <section id="gemini-generator" class="py-20 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="section-title fade-in-on-scroll">✨ Project Idea Generator</h2>
+                <p class="max-w-2xl mx-auto text-lg text-slate-600 mb-8 fade-in-on-scroll">
+                    Curious about what kind of data projects can be built? Enter a topic or industry below, and let Gemini generate some creative ideas for you! This is a live demo of integrating Large Language Models into a web application.
+                </p>
+                <div class="max-w-lg mx-auto fade-in-on-scroll">
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <input type="text" id="topic-input" placeholder="E.g., 'E-commerce', 'Healthcare', 'Finance'" class="flex-grow px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 focus:outline-none transition">
+                        <button id="generate-ideas-btn" class="bg-indigo-600 text-white px-8 py-3 rounded-lg font-semibold text-lg hover:bg-indigo-700 transition-all transform hover:scale-105 flex items-center justify-center">
+                            Generate Ideas
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Education Section -->
+        <section id="education" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title fade-in-on-scroll">Education</h2>
+                <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+                    <div class="bg-slate-50 p-6 rounded-lg fade-in-on-scroll">
+                        <p class="text-slate-500">Jan 2024 - Dec 2025</p>
+                        <h3 class="text-xl font-bold text-slate-800">Master of Science, Management Information Systems</h3>
+                        <p class="font-medium text-slate-600">University of Illinois at Chicago</p>
+                        <p class="text-sm text-slate-500 mt-1">GPA: 3.97</p>
+                    </div>
+                     <div class="bg-slate-50 p-6 rounded-lg fade-in-on-scroll">
+                        <p class="text-slate-500">Aug 2017 - Jul 2021</p>
+                        <h3 class="text-xl font-bold text-slate-800">Bachelor of Engineering, Mechanical</h3>
+                        <p class="font-medium text-slate-600">The National Institute Of Engineering, Mysuru</p>
+                        <p class="text-sm text-slate-500 mt-1">GPA: 3.7</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-2xl mx-auto">
+                    <h2 class="section-title fade-in-on-scroll">Get In Touch</h2>
+                    <p class="text-lg text-slate-600 mb-8 fade-in-on-scroll">
+                        I'm currently seeking full-time opportunities for Data Analyst roles. If you have a position that aligns with my skills and experience, I'd love to hear from you.
+                    </p>
+                    <div class="fade-in-on-scroll">
+                        <a href="mailto:nandishsbellad@gmail.com" class="inline-block bg-indigo-600 text-white px-10 py-4 rounded-lg font-semibold text-lg hover:bg-indigo-700 transition-all transform hover:scale-105">
+                            Say Hello
+                        </a>
+                        <p class="mt-4 text-slate-500">
+                            or call me at <a href="tel:+13123993766" class="text-indigo-500 hover:underline">+1 312-399-3766</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex justify-center space-x-6 mb-4">
+                 <a href="mailto:nandishsbellad@gmail.com" class="text-slate-400 hover:text-white transition-colors">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/nandish-s-bellad/" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zm-7 5.07h-2.56v7.37H9.44V8.07H6.88V6.39h5.12v1.68zM17.12 8.93c-1.14 0-1.8.66-2.1 1.22h-.03v-1.08h-2.5V15.44h2.6v-3.73c0-.98.24-1.93 1.4-1.93s1.16.95 1.16 1.99v3.67h2.6V12.1c0-2.2-1.2-3.17-2.77-3.17z"></path></svg>
+                </a>
+            </div>
+            <p class="text-slate-400">&copy; <span id="year"></span> Nandish Shivabasava Bellad. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Modal for Project Ideas -->
+    <div id="ideas-modal" class="modal-backdrop hidden modal-enter">
+        <div class="modal-content">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-2xl font-bold text-slate-800">Generated Project Ideas</h3>
+                <button id="close-modal-btn" class="text-slate-500 hover:text-slate-800">&times;</button>
+            </div>
+            <div id="ideas-output" class="space-y-4 text-left">
+                <!-- Loading indicator will be shown here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- Constants and State ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const generateBtn = document.getElementById('generate-ideas-btn');
+        const topicInput = document.getElementById('topic-input');
+        const ideasModal = document.getElementById('ideas-modal');
+        const ideasOutput = document.getElementById('ideas-output');
+        const closeModalBtn = document.getElementById('close-modal-btn');
+        const API_KEY = ""; // Leave blank, will be handled by the environment
+
+        // --- Event Listeners ---
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        generateBtn.addEventListener('click', handleGenerateIdeas);
+        closeModalBtn.addEventListener('click', closeModal);
+        ideasModal.addEventListener('click', (e) => {
+            if (e.target === ideasModal) {
+                closeModal();
+            }
+        });
+        
+        // --- Functions ---
+        
+        /**
+         * Initializes the page on load.
+         */
+        function initialize() {
+            document.getElementById('year').textContent = new Date().getFullYear();
+            initializeScrollAnimations();
+        }
+
+        /**
+         * Sets up the Intersection Observer for scroll animations.
+         */
+        function initializeScrollAnimations() {
+            const faders = document.querySelectorAll('.fade-in-on-scroll');
+            const appearOptions = {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            };
+            const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, appearOptions);
+
+            faders.forEach(fader => {
+                appearOnScroll.observe(fader);
+            });
+        }
+        
+        /**
+         * Handles the click event for generating project ideas.
+         */
+        async function handleGenerateIdeas() {
+            const topic = topicInput.value.trim();
+            if (!topic) {
+                showModalError("Please enter a topic or industry.");
+                return;
+            }
+
+            openModal();
+            showLoading();
+
+            try {
+                const prompt = `As an expert data scientist, generate 3 innovative data analysis project ideas related to "${topic}". For each idea, provide a clear title and a concise 2-3 sentence description of the project's goal and potential impact. Format the output with a title starting with '###' and the description following it.`;
+                
+                const responseText = await callGeminiAPI(prompt);
+                displayIdeas(responseText);
+
+            } catch (error) {
+                console.error("Error generating ideas:", error);
+                showModalError("Sorry, something went wrong while generating ideas. Please try again later.");
+            }
+        }
+
+        /**
+         * Calls the Gemini API with a given prompt.
+         * @param {string} prompt - The prompt to send to the API.
+         * @returns {Promise<string>} The text response from the API.
+         */
+        async function callGeminiAPI(prompt) {
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${API_KEY}`;
+            const payload = {
+                contents: [{
+                    parts: [{ text: prompt }]
+                }]
+            };
+
+            const response = await fetch(apiUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+
+            if (!response.ok) {
+                throw new Error(`API call failed with status: ${response.status}`);
+            }
+
+            const result = await response.json();
+            
+            if (result.candidates && result.candidates.length > 0 &&
+                result.candidates[0].content && result.candidates[0].content.parts &&
+                result.candidates[0].content.parts.length > 0) {
+                return result.candidates[0].content.parts[0].text;
+            } else {
+                throw new Error("Invalid response structure from API.");
+            }
+        }
+
+        /**
+         * Displays the generated ideas in the modal.
+         * @param {string} text - The raw text from the API.
+         */
+        function displayIdeas(text) {
+            const ideasHtml = text.split('###').slice(1).map(idea => {
+                const [title, ...descriptionParts] = idea.trim().split('\n');
+                const description = descriptionParts.join('<br>');
+                return `<div class="p-4 border-l-4 border-indigo-500 bg-indigo-50 rounded-r-lg">
+                            <h4 class="text-lg font-semibold text-slate-800">${title.trim()}</h4>
+                            <p class="text-slate-600 mt-1">${description.trim()}</p>
+                        </div>`;
+            }).join('');
+            ideasOutput.innerHTML = ideasHtml;
+        }
+
+        /**
+         * Shows an error message in the modal.
+         * @param {string} message - The error message to display.
+         */
+        function showModalError(message) {
+            ideasOutput.innerHTML = `<div class="text-red-600 text-center">${message}</div>`;
+            openModal();
+        }
+
+        /**
+         * Shows the loading indicator in the modal.
+         */
+        function showLoading() {
+            ideasOutput.innerHTML = '<div class="flex justify-center items-center py-8"><div class="loader"></div></div>';
+        }
+
+        /**
+         * Opens the modal with a transition.
+         */
+        function openModal() {
+            ideasModal.classList.remove('hidden');
+            setTimeout(() => ideasModal.classList.remove('modal-enter'), 10); // Start transition
+        }
+
+        /**
+         * Closes the modal with a transition.
+         */
+        function closeModal() {
+            ideasModal.classList.add('modal-leave-active');
+            setTimeout(() => {
+                ideasModal.classList.add('hidden');
+                ideasModal.classList.remove('modal-leave-active');
+                ideasModal.classList.add('modal-enter'); // Reset for next open
+            }, 300);
+        }
+
+        // --- Initial Page Load ---
+        document.addEventListener('DOMContentLoaded', initialize);
+
+    </script>
+</body>
+</html>

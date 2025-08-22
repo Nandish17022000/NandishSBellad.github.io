@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nandish Shivabasava Bellad - Data Analyst</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            /* New Gradient Background */
+            background-color: #9fa7b2;
+            background-image: radial-gradient(ellipse at top, #161b22, #0d1117);
+            color: #c9d1d9;
+        }
+        /* Style for the hero section background */
+        #hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1454496522488-7a8e488e8606');
+            background-size: cover;
+            background-position: center;
+        }
+        #about {
+            background-image: linear-gradient(rgba(13, 17, 23, 0.9), rgba(13, 17, 23, 0.9)), url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80'); /* Professional Collaborative Workspace */
+        }
+        #education {
+            background-image: linear-gradient(rgba(13, 17, 23, 0.9), rgba(13, 17, 23, 0.9)), url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80');
+        }
+        #skills {
+            background-image: linear-gradient(rgba(13, 17, 23, 0.9), rgba(13, 17, 23, 0.9)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80'); /* Tech Hardware / Circuit Board */
+        }        
+        #projects {
+            background-image: linear-gradient(rgba(13, 17, 23, 0.9), rgba(13, 17, 23, 0.9)), url('https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2020&q=80'); /* Abstract Tech / Laptop */
+        }
+        .glass-card {
+            background: rgba(22, 27, 34, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+               background: rgba(15, 23, 42, 0.9);
+            border: 1px solid rgba(249, 115, 22, 0.5);
+            box-shadow: 0 0 20px rgba(249, 115, 22, 0.4),
+                        0 0 40px rgba(249, 115, 22, 0.2),
+                        0 0 60px rgba(249, 115, 22, 0.1);
+            transform: translateY(-8px);
+        }
+        .section-title {
+            @apply text-4xl font-bold text-white mb-4 text-center;
+        }
+        .section-subtitle {
+            @apply text-lg text-slate-400 mb-12 text-center max-w-2xl mx-auto;
+        }
+        .skill-icon {
+            @apply w-12 h-12 mx-auto mb-3 transition-transform duration-300;
+        }
+        /* Orange glow effect on hover */
+        .skill-card:hover {
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid rgba(249, 115, 22, 0.5);
+            box-shadow: 0 0 20px rgba(249, 115, 22, 0.4),
+                        0 0 40px rgba(249, 115, 22, 0.2),
+                        0 0 60px rgba(249, 115, 22, 0.1);
+            transform: translateY(-8px);
+        }
+        .skill-card:hover .skill-icon {
+            filter: drop-shadow(0 0 10px rgba(132, 249, 22, 0.599));
+            transform: scale(1.1);
+        }
+         /* Enhanced text glow on hover */
+        .skill-card:hover h3 {
+            color: #f97316;
+            text-shadow: 0 0 10px rgba(249, 115, 22, 0.5);
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background-color: rgba(113, 217, 44, 0.004);
+        }
+        .timeline-item {
+            @apply mb-8 flex justify-between items-center w-full;
+        }
+        .timeline-item:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+        .timeline-content {
+            @apply w-5/12 p-6 glass-card;
+        }
+        .timeline-dot {
+            @apply w-4 h-4 rounded-full bg-cyan-400 absolute left-1/2 -translate-x-1/2 z-10 border-4 border-[#0d1117];
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .icon-link svg {
+            width: 32px;
+            height: 32px;
+            fill: rgb(247, 147, 85);
+            transition: all 0.3s ease;
+        }
+        .icon-link:hover svg {
+            fill: #3fe5f1;
+            transform: scale(1.9);
+        }
+        .resume-button {
+            border-color: rgba(34, 211, 238, 0.5);
+            color: rgba(255, 255, 255, 0.9);
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(34, 211, 238, 0);
+        }
+        .resume-button:hover {
+            background-color: rgba(71, 225, 249, 0.2);
+            border-color: #07d5f5;
+            color: #ffffff;
+            box-shadow: 0 0 25px rgba(34, 211, 238, 0.4);
+        }
+        /* Clickable image styles */
+        .clickable-image {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .clickable-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(59, 130, 246, 0);
+            transition: all 0.3s ease;
+        }
+
+        /*.clickable-image:hover::after {
+            background: rgba(59, 130, 246, 0.2);
+        }*/
+
+        .clickable-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .clickable-image img {
+            transition: transform 0.3s ease;
+        }
+
+        /* Clickable title styles */
+        .clickable-title {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .glass-card:hover .clickable-title {
+            color: rgb(35, 253, 107); /* cyan glow */
+            text-shadow: 0 0 5px rgba(97, 243, 243, 0),
+                        0 0 10px rgba(0, 255, 255, 0.6);
+        }
+
+        /* Hover indicator for clickable elements */
+        .clickable-image:hover {
+            position: relative;
+        }
+        .clickable-image:hover::before {
+            content: '🔗';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2rem;
+            z-index: 10;
+            animation: bounce 0.6s ease-in-out;
+        }
+        @keyframes bounce {
+            0%, 20%, 60%, 100% {
+                transform: translate(-50%, -50%) translateY(0);
+            }
+            40% {
+                transform: translate(-50%, -50%) translateY(-10px);
+            }
+            80% {
+                transform: translate(-50%, -50%) translateY(-5px);
+            }
+        }
+
+        .fade-in {
+            opacity: 1;
+            animation: fadeIn 0.6s ease-in-out;
+        }
+          /* Glow effect for image */
+        .glass-card img {
+            transition: all 0.4s ease-in-out;
+        }
+
+        .glass-card:hover img {
+            filter: brightness(1.2);
+            
+            transform: scale(1.05);
+        }
+        /* Styling for Education Section Visual Effects */
+            .education-card {
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                animation: float 5s ease-in-out infinite;
+            }
+
+            .education-card:nth-child(2) {
+                animation-delay: -3s; /* Stagger the animation */
+            }
+
+            .education-card:hover {
+                transform: translateY(-12px) scale(1.03);
+                box-shadow: 0 0 30px rgba(255, 115, 0, 0.4), 0 0 50px rgba(255, 115, 0, 0.2);
+                border-color: rgba(255, 119, 0, 0.7);
+            }
+
+            @keyframes float {
+                0% { transform: translateY(0px); }
+                50% { transform: translateY(-8px); }
+                100% { transform: translateY(0px); }
+            }
+            
+    </style>
+</head>
+<body class="antialiased">
+    <div class="content-wrapper">
+        <!-- Header -->
+        <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="header">
+            <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+                <a href="#" class="text-xl font-bold text-white">Bellad The Analyst</a>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#about" class="text-slate-300 hover:text-cyan-400 transform transition-transform duration-300 scale-100 hover:scale-125 hover:drop-shadow-[0_0_10px_#22d3ee]">About</a>
+                    <a href="#education" class="text-slate-300 hover:text-cyan-400 transform transition-transform duration-300 scale-100 hover:scale-125">Education</a>
+                    <a href="#skills" class="text-slate-300 hover:text-cyan-400 transform transition-transform duration-300 scale-100 hover:scale-125">Skills</a>
+                    <a href="#experience" class="text-slate-300 hover:text-cyan-400 transform transition-transform duration-300 scale-100 hover:scale-125">Experience</a>
+                    <a href="#projects" class="text-slate-300 hover:text-cyan-400 transform transition-transform duration-300 scale-100 hover:scale-125">Projects</a>
+                </nav>
+                <a href="#contact" class="hidden md:inline-block bg-cyan-500 text-md text-black font-bold px-5 py-2 rounded-lg hover:bg-cyan-400 transition-all transform transition-transform duration-300 scale-100 hover:scale-125">Contact</a>
+                <button id="mobile-menu-button" class="md:hidden text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+             <div id="mobile-menu" class="hidden md:hidden bg-slate-800/90 backdrop-blur-sm">
+                <a href="#about" class="block py-3 px-6 text-slate-300 hover:text-cyan-400 hover:bg-slate-700">About</a>
+                <a href="#education" class="block py-3 px-6 text-slate-300 hover:text-cyan-400 hover:bg-slate-700">Education</a>
+                <a href="#skills" class="block py-3 px-6 text-slate-300 hover:text-cyan-400 hover:bg-slate-700">Skills</a>
+                <a href="#experience" class="block py-3 px-6 text-slate-300 hover:text-cyan-400 hover:bg-slate-700">Experience</a>
+                <a href="#projects" class="block py-3 px-6 text-slate-300 hover:text-cyan-400 hover:bg-slate-700">Projects</a>
+                <a href="#contact" class="block py-3 px-6 text-slate-300 hover:text-cyan-400 hover:bg-slate-700">Contact</a>
+            </div>
+        </header>
+
+        <main>
+            <!-- Hero Section -->
+            <section id="hero" class="min-h-screen flex items-center justify-center text-center">
+                <div class="container mx-auto px-6 fade-in">
+                    <!-- Profile Picture -->
+                    <div class="mb-6">
+                        <img src="my photo.jpg" alt="Nandish Shivabasava Bellad" class="w-56 h-56 rounded-full mx-auto shadow-2xl border-4 border-white/10 object-cover">
+                    </div>
+
+                    <!-- Name -->
+                    <h1 class="text-4xl md:text-5xl font-bold tracking-wide text-white uppercase mb-2">
+                        Nandish Shivabasava Bellad
+                    </h1>
+
+                    <!-- Fading Gradient Separator -->
+                     <div class="w-1/3 h-0.5 mx-auto my-4 bg-gradient-to-r from-transparent via-amber-500 to-transparent"></div>
+
+                    <!-- Title -->
+                    <p class="text-lg text-white/80 mb-6">
+                        Data Analyst | Tableau Developer
+                    </p>
+
+                    <!-- Social Icons -->
+                    <div class="flex justify-center items-center space-x-8 mb-8">
+                    <!-- LinkedIn -->
+                        <a href="https://www.linkedin.com/in/nandishsbellad" target="_blank" rel="noopener noreferrer" class="icon-link relative group" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        <!-- Tooltip -->
+                            <span class="absolute left-1/2 -translate-x-1/2 mt-2 px-2 py-1 text-xs font-medium 
+                                        text-white bg-slate-800 rounded opacity-0 group-hover:opacity-100 
+                                        transition whitespace-nowrap">
+                                LinkedIn
+                            </span>
+                        </a>
+                    <!-- GitHub -->
+                        <a href="https://github.com/Nandish17022000" target="_blank" rel="noopener noreferrer" class="icon-link relative group" aria-label="GitHub">
+                            <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            <!-- Tooltip -->
+                            <span class="absolute left-1/2 -translate-x-1/2 mt-2 px-2 py-1 text-xs font-medium 
+                                        text-white bg-slate-800 rounded opacity-0 group-hover:opacity-100 
+                                        transition whitespace-nowrap">
+                                GitHub
+                            </span>
+                        </a>
+                    <!-- Email -->
+                        <a href="mailto:nandishsbellad@gmail.com" target="_blank" rel="noopener noreferrer" class="relative group icon-link" aria-label="Email">
+
+                            <!-- Email Icon -->
+                            <svg viewBox="0 0 24 24" width="28" height="28">
+                                <path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/>
+                            </svg>
+
+                            <!-- Tooltip -->
+                            <span class="absolute left-1/2 -translate-x-1/2 mt-2 px-2 py-1 text-xs font-medium 
+                                        text-white bg-slate-800 rounded opacity-0 group-hover:opacity-100 
+                                        transition whitespace-nowrap">
+                                Email
+                            </span>
+                        </a>
+
+                    <!-- Tableau -->
+                        <a href="https://public.tableau.com/app/profile/nandish.shivabasava.bellad/vizzes" target="_blank" rel="noopener noreferrer" class="relative group icon-link" aria-label="Tableau Public">
+
+                        <!-- Tableau Logo SVG -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="36" height="36">
+                            <!-- Center Orange Cross -->
+                            <g fill="#F28E2B">
+                                <rect x="58" y="36" width="12" height="56"/>
+                                <rect x="36" y="58" width="56" height="12"/>
+                            </g>
+
+                            <!-- Top Light Blue -->
+                            <g fill="#F28E2B">
+                                <rect x="58" y="8" width="12" height="24"/>
+                                <rect x="46" y="20" width="36" height="8"/>
+                            </g>
+
+                            <!-- Bottom Purple -->
+                            <g fill="#F28E2B">
+                                <rect x="58" y="96" width="12" height="24"/>
+                                <rect x="46" y="108" width="36" height="8"/>
+                            </g>
+
+                            <!-- Left Red -->
+                            <g fill="#F28E2B">
+                                <rect x="8" y="58" width="24" height="12"/>
+                                <rect x="20" y="46" width="8" height="36"/>
+                            </g>
+
+                            <!-- Right Navy -->
+                            <g fill="#F28E2B">
+                                <rect x="96" y="58" width="24" height="12"/>
+                                <rect x="108" y="46" width="8" height="36"/>
+                            </g>
+                        </svg>
+
+                        <!-- Tooltip -->
+                        <span class="absolute left-1/2 -translate-x-1/2 mt-2 px-2 py-1 text-xs font-medium 
+                                        text-white bg-slate-800 rounded opacity-0 group-hover:opacity-100 
+                                        transition whitespace-nowrap">
+                            Tableau
+                        </span>
+                        </a>
+
+                 </div>
+
+                    <!-- Resume Button -->
+                    <a href="https://drive.google.com/file/d/1_8waKKBlmkD2EoC8bBYhZnw4_skBatgt/preview" target="_blank" class="resume-button inline-block border-2 px-10 py-3 rounded-full uppercase tracking-widest font-semibold">
+                        View Resume
+                    </a>
+                </div>
+            </section>
+
+            <!-- Fading Gradient Separator -->
+                <div class="w-1/2 h-0.5 mx-auto my-4 bg-gradient-to-r from-transparent via-amber-500 to-transparent"></div>
+
+
+            <!-- About Me -->
+            <section id="about" class="py-24">
+                <div class="container mx-auto px-6">
+                    <div class="text-center">
+                        <h2 class="text-4xl md:text-5xl font-bold text-white mb-2 text-center leading-tight">About <span class="bg-gradient-to-r from-red-400 to-blue-400 bg-clip-text text-transparent">Me</span></h2>
+                        <p class="text-2xl text-slate-400 mb-6 text-center leading-relaxed max-w-2xl mx-auto">I treat data not as a historical record, but as a blueprint for the future.</p>
+                    </div>
+                    <div class="max-w-4xl mx-auto grid md:grid-cols-3 gap-10 items-center">
+                        <div class="md:col-span-1 fade-in">
+                           <img src="my photo.jpg" alt="Nandish Shivabasava Bellad" class="rounded-full shadow-lg w-full aspect-square object-cover">
+                        </div>
+                        <div class="md:col-span-2 fade-in">
+                            <p class="text-lg leading-relaxed text-slate-300 mb-6">
+                                Hi, I'm Nandish — a Data Analyst who transforms chaotic datasets into clear paths to profitability. With over three years of proven experience, I've consistently delivered measurable business impact: enhancing monthly revenue by 7%, reducing delivery times by 18%, and architecting solutions that directly drive organizational growth and efficiency. When data is messy and unclear, I make the path to profit crystal clear.
+                            </p>
+                            <p class="text-lg leading-relaxed text-slate-300 mb-2">
+                                I bring a powerful combination of technical expertise and strategic business insight. From engineering predictive models that achieve higher accuracy to building interactive dashboards that empower executives with real-time intelligence, I excel at bridging the gap between complex analytics and actionable business strategy. 
+                            </p>
+                            <p class="text-lg leading-relaxed text-slate-300 mb-2">
+                                What sets me apart? My commitment to diagnostic analysis — I don't just identify trends, I uncover the "why" behind the data that organizations can depend on. Armed with advanced proficiency in Python, SQL, and cutting-edge visualization tools, and reinforced by my Master's in Management Information Systems, I help organizations leverage data as their ultimate competitive advantage for smarter, faster, and more profitable decision-making.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Fading Gradient Separator -->
+                <div class="w-1/2 h-0.5 mx-auto my-4 bg-gradient-to-r from-transparent via-amber-500 to-transparent"></div>
+<!-- Education -->
+<section id="education" class="py-24">
+    <div class="container mx-auto px-6">
+        <div class="text-center">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-2 text-center leading-tight">Education</h2>
+            <p class="text-2xl text-slate-400 mb-12 text-center leading-relaxed max-w-2xl mx-auto">My academic background and qualifications.</p>
+        </div>
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
+            <div class="glass-card p-8 fade-in education-card">
+                <h3 class="text-2xl font-bold text-orange-400 mb-2">University of Illinois at Chicago</h3>
+                <p class="text-lg font-semibold text-white mb-1 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-cyan-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L9 9.61V16a1 1 0 001 1h2a1 1 0 001-1v-6.39l6.394-2.69a1 1 0 000-1.84l-7-3zM9 8.19l-6-2.53 6-2.53v5.06z" />
+                    </svg>
+                    Master of Science, Management Information Systems
+                </p>
+                <p class="text-slate-400 mb-4">Jan 2024 - Dec 2025 | GPA: 3.97</p>
+                <p class="text-slate-300 font-medium mb-2">Relevant Coursework:</p>
+                <ul class="list-disc list-inside text-slate-300 space-y-1">
+                    <li>Advanced Database Management</li>
+                    <li>Business Data Visualization</li>
+                    <li>Project Management</li>
+                    <li>Corporate Finance</li>
+                    <li>Health Information Management & Analytics</li>
+                </ul>
+            </div>
+            <div class="glass-card p-8 fade-in education-card">
+                <h3 class="text-2xl font-bold text-orange-400 mb-2">The National Institute Of Engineering, Mysuru</h3>
+                <p class="text-lg font-semibold text-white mb-1 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-cyan-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
+                    </svg>
+                    Bachelor of Engineering, Mechanical
+                </p>
+                <p class="text-slate-400 mb-4">Aug 2017 - Jul 2021 | GPA: 3.7</p>
+                <p class="text-slate-300 font-medium mb-2">Relevant Coursework:</p>
+                <ul class="list-disc list-inside text-slate-300 space-y-1">
+                    <li>Operations Research</li>
+                    <li>Total Quality Management</li>
+                    <li>Computer Aided Engineering</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Fading Gradient Separator -->
+                <div class="w-1/2 h-0.5 mx-auto my-4 bg-gradient-to-r from-transparent via-amber-500 to-transparent"></div>
+<!-- Skills Section -->
+<section id="skills" class="py-24">
+    <div class="container mx-auto px-6">
+        <div class="text-center">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-2 text-center leading-tight">Technical <span class="bg-gradient-to-r from-red-400 to-blue-400 bg-clip-text text-transparent">Arsenal</span></h2>
+            <p class="text-2xl text-slate-400 mb-6 text-center leading-relaxed max-w-2xl mx-auto">Weapons of choice for conquering complex data challenges and maximizing ROI.</p>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 text-center">
+            <div class="glass-card p-6 skill-card fade-in">
+                <img src="excel.webp" alt="Excel" class="skill-icon w-32 h-24 mx-auto mb-6 object-contain">
+                <h3 class="font-semibold text-white">Excel</h3>
+            </div>
+            <div class="glass-card p-6 skill-card fade-in">
+                <img src="Tableau-Symbol.png" alt="Tableau" class="skill-icon w-48 h-24 mx-auto mb-6 object-contain">
+                <h3 class="font-semibold text-white">Tableau</h3>
+            </div>
+            <div class="glass-card p-6 skill-card fade-in">
+                <img src="power bi 2.jpg" alt="Power BI" class="skill-icon w-48 h-24 mx-auto mb-6 object-contain">
+                <h3 class="font-semibold text-white">Power BI</h3>
+            </div>
+            <div class="glass-card p-6 skill-card fade-in">
+                <img src="SQL.png" alt="SQL" class="skill-icon w-48 h-24 mx-auto mb-6 object-contain">
+                <h3 class="font-semibold text-white">SQL</h3>
+            </div>
+            <div class="glass-card p-6 skill-card fade-in">
+                <img src="python2.png" alt="Python" class="skill-icon w-48 h-24 mx-auto mb-6 object-contain">
+                <h3 class="font-semibold text-white">Python</h3>
+            </div>
+            <div class="glass-card p-6 skill-card fade-in">
+                <img src="AWS-Logo-PNG-File.png" alt="AWS" class="skill-icon w-32 h-24 mx-auto mb-6 object-contain">
+                <h3 class="font-semibold text-white">AWS</h3>
+            </div>
+        </div>
+        
+        <!-- Skill Categories -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16 max-w-4xl mx-auto">
+            <div class="text-left">
+                <div class="flex items-center mb-2">
+                    <span class="text-yellow-400 mr-2">★</span>
+                    <span class="text-white font-medium">Data Visualization - 3+ years</span>
+                </div>
+                <div class="flex items-center mb-2">
+                    <span class="text-yellow-400 mr-2">★</span>
+                    <span class="text-white font-medium">Business Analytics - 2+ years</span>
+                </div>
+                <div class="flex items-center mb-2">
+                    <span class="text-yellow-400 mr-2">★</span>
+                    <span class="text-white font-medium">Project Management</span>
+                </div>
+            </div>
+            <div class="text-left">
+                <div class="flex items-center mb-2">
+                    <span class="text-yellow-400 mr-2">★</span>
+                    <span class="text-white font-medium">Team Management - 2+ years</span>
+                </div>
+                <div class="flex items-center mb-2">
+                    <span class="text-yellow-400 mr-2">★</span>
+                    <span class="text-white font-medium">Report Development - 3+ years</span>
+                </div>
+                <div class="flex items-center mb-2">
+                    <span class="text-yellow-400 mr-2">★</span>
+                    <span class="text-white font-medium">Financial Analysis / Modeling</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <!-- Fading Gradient Separator -->
+                <div class="w-1/2 h-0.5 mx-auto my-4 bg-gradient-to-r from-transparent via-amber-500 to-transparent"></div>
+            
+        <!-- Experience Section -->
+                <section id="experience" class="py-24 relative overflow-hidden">
+                    <!-- Background Elements -->
+                    <div class="absolute inset-0 opacity-10">
+                        <div class="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-full blur-3xl"></div>
+                        <div class="absolute bottom-20 right-10 w-40 h-40 bg-gradient-to-br from-purple-400 to-pink-600 rounded-full blur-3xl"></div>
+                    </div>
+                    
+                    <div class="container mx-auto px-6 relative z-10">
+                        <div class="text-center mb-16">
+                            <h2 class="text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
+                                Career <span class="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">Journey</span>
+                            </h2>
+                            <p class="text-xl text-slate-400 leading-relaxed max-w-2xl mx-auto">My professional roadmap and key milestones</p>
+                            <div class="w-1/5 h-0.5 mx-auto my-4 bg-gradient-to-r from-transparent via-amber-500 to-transparent"></div>
+                        </div>
+                        
+                        <!-- Roadmap Container -->
+                        <div class="relative max-w-6xl mx-auto">
+                            <!-- Curvy Wavy Arrow Path -->
+                            <div class="absolute inset-0 hidden md:block">
+                                <svg class="w-full h-full" viewBox="0 0 800 1000" preserveAspectRatio="none">
+                                    <defs>
+                                        <linearGradient id="pathGradient" x1="0%" y1="100%" x2="0%" y2="0%">
+                                            <stop offset="0%" style="stop-color:#fbbf24;stop-opacity:1" />
+                                            <stop offset="33%" style="stop-color:#a855f7;stop-opacity:1" />
+                                            <stop offset="66%" style="stop-color:#3b82f6;stop-opacity:1" />
+                                            <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:1" />
+                                        </linearGradient>
+                                        <linearGradient id="arrowGradient" x1="0%" y1="100%" x2="0%" y2="0%">
+                                            <stop offset="0%" style="stop-color:#06b6d4;stop-opacity:1" />
+                                            <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+                                        </linearGradient>
+                                    </defs>
+                                    <!-- Wavy Path -->
+                                    <path d="M400 950 Q300 850 400 750 Q500 650 350 550 Q200 450 450 350 Q600 250 400 150 Q250 100 400 50" 
+                                        stroke="url(#pathGradient)" 
+                                        stroke-width="4" 
+                                        fill="none" 
+                                        stroke-linecap="round"
+                                        class="animate-pulse"/>
+                                    
+                                   <!-- Arrow Heads -->
+                                        <g class="arrow-group">
+                                        <!-- Small Arrow -->
+                                        <polygon points="400,40 390,55 410,55" 
+                                                fill="url(#arrowGradient)" 
+                                                class="slow-arrow small"/>
+
+                                        <!-- Medium Arrow -->
+                                        <polygon points="400,30 385,55 415,55" 
+                                                fill="url(#arrowGradient)" 
+                                                class="slow-arrow medium"/>
+
+                                        <!-- Big Arrow -->
+                                        <polygon points="400,20 380,55 420,55" 
+                                                fill="url(#arrowGradient)" 
+                                                class="slow-arrow big"/>
+                                        </g>
+
+                                        <style>
+                                        @keyframes slowMove {
+                                            0%, 100% { transform: translateY(0); }
+                                            50% { transform: translateY(10px); }
+                                        }
+
+                                        .slow-arrow {
+                                            animation: slowMove 5s ease-in-out infinite;
+                                            transform-origin: center;
+                                        }
+
+                                        /* Size scaling */
+                                        .small { transform: scale(0.6); }
+                                        .medium { transform: scale(0.8); }
+                                        .big { transform: scale(1); }
+                                        </style>
+
+
+                                    
+                                    <!-- Decorative Dots along path -->
+                                    <circle cx="400" cy="750" r="3" fill="#a855f7" class="animate-pulse" style="animation-delay: 0.5s"/>
+                                    <circle cx="350" cy="550" r="3" fill="#3b82f6" class="animate-pulse" style="animation-delay: 1s"/>
+                                    <circle cx="450" cy="350" r="3" fill="#06b6d4" class="animate-pulse" style="animation-delay: 1.5s"/>
+                                </svg>
+                            </div>
+                            
+                            <!-- Mobile Simple Path -->
+                            <div class="absolute left-8 w-1 h-full bg-gradient-to-t from-yellow-400 via-purple-500 via-blue-500 to-cyan-400 rounded-full md:hidden"></div>
+                            
+                            <!-- Experience Items -->
+                         
+                                
+                                <!-- Future Goals Section (Now at Top) -->
+                                <div class="timeline-item fade-in">
+                                    <!-- Timeline Dot cyan to blue-->
+                                    <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-gradient-to-r from-green-400 to-orange-500 rounded-full shadow-lg shadow-cyan-400/50 z-10 hidden md:flex items-center justify-center animate-pulse">
+                                        <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13a1 1 0 102 0V9.414l1.293 1.293a1 1 0 001.414-1.414z" clip-rule="evenodd"/>
+                                        </svg>
+                                    </div>
+                                    
+                                    
+                                    <!-- Content Card -->
+                                    <div class="w-full md:w-1/2 md:ml-auto md:pl-16 ml-20 md:ml-0">
+                                        <div class="glass-card p-8 rounded-2xl border border-orange-400/30 hover:border-orange-400/60 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-2xl hover:shadow-orange-400/30">
+                                            <!-- Status Badge -->
+                                            <div class="inline-flex items-center px-4 py-2 rounded-full text-md font-semibold bg-gradient-to-r from-cyan-400/20 to-blue-500/20 text-cyan-400 mb-6">
+                                                <svg class="w-4 h-4 mr-2 text-cyan-400 animate-" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13a1 1 0 102 0V9.414l1.293 1.293a1 1 0 001.414-1.414z" clip-rule="evenodd"/>
+                                                </svg>
+                                                My Next Challenge
+                                            </div>
+                                            
+                                            <h3 class="text-3xl font-bold text-white mb-3">Future Aspirations</h3>
+                                            <p class="font-semibold text-slate-300 mb-6 text-lg">Data Science & Analytics Leadership</p>
+                                            <p class="text-slate-400 leading-relaxed mb-8 text-lg">Ready to join an innovative organization where I can scale analytics operations, transform business strategy through advanced analytics while building and leading high-performing data teams.</p>
+                                            
+                                            <!-- Future Goals with Icons -->
+                                            <div class="space-y-4">
+                                                <div class="flex items-center text-slate-300 p-3 bg-gradient-to-r from-cyan-400/10 to-blue-500/10 rounded-lg">
+                                                    <div class="w-3 h-3 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full mr-4"></div>
+                                                    <span> Data Analyst/Scientist Role</span>
+                                                </div>
+                                                <div class="flex items-center text-slate-300 p-3 bg-gradient-to-r from-blue-400/10 to-purple-500/10 rounded-lg">
+                                                    <div class="w-3 h-3 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full mr-4"></div>
+                                                    <span>Project Management</span>
+                                                </div>
+                                                <div class="flex items-center text-slate-300 p-3 bg-gradient-to-r from-purple-400/10 to-pink-500/10 rounded-lg">
+                                                    <div class="w-3 h-3 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full mr-4"></div>
+                                                    <span>Advanced Analytics & AI Implementation</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Current Role -->
+                                <div class="relative flex flex-col md:flex-row items-center">
+                                    <!-- Timeline Dot -->
+                                    <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-gradient-to-r from-blue-400 to-green-500 rounded-full shadow-lg shadow-blue-400/50 z-10 hidden md:flex items-center justify-center">
+                                        <div class="w-3 h-3 bg-white rounded-full animate-ping"></div>
+                                    </div>
+                                    <div class="absolute left-8 transform -translate-x-1/2 w-8 h-8 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full shadow-lg shadow-blue-400/50 z-10 md:hidden flex items-center justify-center">
+                                        <div class="w-3 h-3 bg-white rounded-full animate-ping"></div>
+                                    </div>
+                                    
+                                    <!-- Content Card -->
+                                    <div class="w-full md:w-1/2 md:pr-16 ml-20 md:ml-0">
+                                        <div class="glass-card p-8 rounded-2xl border border-blue-400/30 hover:border-blue-400/60 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-2xl hover:shadow-blue-400/30">
+                                            <!-- Status Badge -->
+                                            <div class="inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold bg-green-400/20 text-green-400 mb-6">
+                                                <span class="w-3 h-3 bg-green-400 rounded-full mr-2 animate-pulse"></span>
+                                                Latest Experience
+                                            </div>
+                                            
+                                            <div class="flex items-center justify-between mb-4">
+                                                <span class="text-sm font-medium text-blue-400 bg-blue-400/10 px-4 py-2 rounded-full">Aug 2024 - May 2025</span>
+                                                
+                                            </div>
+                                            
+                                            <h3 class="text-3xl font-bold text-white mb-3">Graduate Teaching Assistant</h3>
+                                            <p class="font-semibold text-slate-300 mb-6 flex items-center text-lg">
+                                                <svg class="w-5 h-5 mr-3 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                                                </svg>
+                                                University of Illinois at Chicago
+                                            </p>
+                                            <p class="text-slate-400 leading-relaxed mb-6 text-lg">Guided 150+ students in SQL and database concepts, leading to a 15% rise in quiz scores.</p>
+                                            <p class="text-slate-400 leading-relaxed mb-6 text-lg">Mentored AWS Data Engineering certificate candidates, achieving 90% cohort pass rate</p>
+                                            <p class="text-slate-400 leading-relaxed mb-6 text-lg">Fostered a collaborative learning environment, enhancing student engagement and participation.</p>
+
+                                            <!-- Achievement Metrics -->
+                                            <div class="grid grid-cols-2 gap-6 mt-8">
+                                                <div class="text-center p-4 bg-gradient-to-br from-blue-400/20 to-cyan-500/20 rounded-xl border border-blue-400/30">
+                                                    <div class="text-3xl font-bold text-blue-400">150+</div>
+                                                    <div class="text-sm text-slate-400 mt-1">Students Guided</div>
+                                                </div>
+                                                <div class="text-center p-4 bg-gradient-to-br from-green-400/20 to-emerald-500/20 rounded-xl border border-green-400/30">
+                                                    <div class="text-3xl font-bold text-green-400">15%</div>
+                                                    <div class="text-sm text-slate-400 mt-1">Score Improvement</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Shiva HP Gas -->
+                                <div class="relative flex flex-col md:flex-row items-center">
+                                    <!-- Timeline Dot -->
+                                    <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-gradient-to-r from-blue-400 to-orange-500 rounded-full shadow-lg shadow-blue-400/50 z-10 hidden md:flex items-center justify-center">
+                                        <div class="w-3 h-3 bg-white rounded-full animate-ping"></div>
+                                    </div>
+                                    
+                                <!-- Content Card -->
+                                <div class="w-full md:w-1/2 md:ml-auto md:pl-16 ml-20 md:ml-0">
+                                    <div class="glass-card p-8 rounded-2xl border border-purple-400/30 hover:border-purple-400/60 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-2xl hover:shadow-purple-400/30">
+                                        <!-- Status Badge -->
+                                            <div class="inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold bg-purple-400/20 text-purple-400 mb-6">
+                                                <span class="w-3 h-3 bg-purple-400 rounded-full mr-2"></span>
+                                                Previous Experience
+                                            </div>
+
+                                            <div class="flex items-center justify-between mb-4">
+                                                <span class="text-sm font-medium text-purple-400 bg-purple-400/10 px-4 py-2 rounded-full">Oct 2021 - Dec 2023</span>
+                                                <div class="flex items-center text-orange-400"><span class="text-sm">2+ Years</span>
+                                                </div>
+                                            </div>
+                                            
+                                            <h3 class="text-3xl font-bold text-white mb-3">Business Operations Analyst</h3>
+                                            <p class="font-semibold text-slate-300 mb-6 flex items-center text-lg">
+                                                <svg class="w-5 h-5 mr-3 text-purple-400" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                                                </svg>
+                                                Shiva HP Gas Agency
+                                            </p>
+                                            <p class="text-slate-400 leading-relaxed mb-6 text-lg">Leveraged analytics to cut delivery times by 18% and boost monthly revenue by 7%.</p>
+                                            <p class="text-slate-400 leading-relaxed mb-6 text-lg">Engineered and maintained dynamic dashboards in Tableau and Excel to monitor key performance indicators (KPIs) for sales, inventory, and driver logistics.</p>
+                                            <p class="text-slate-400 leading-relaxed mb-6 text-lg">Collaborated cross-functionally to streamline workflows, deployed automation tools to enhance efficiency.</p>
+
+                                            <!-- Achievement Metrics -->
+                                            <div class="grid grid-cols-2 gap-6 mt-8">
+                                                <div class="text-center p-4 bg-gradient-to-br from-purple-400/20 to-pink-500/20 rounded-xl border border-purple-400/30">
+                                                    <div class="text-3xl font-bold text-purple-400">18%</div>
+                                                    <div class="text-sm text-slate-400 mt-1">Delivery Time Cut</div>
+                                                </div>
+                                                <div class="text-center p-4 bg-gradient-to-br from-orange-400/20 to-yellow-500/20 rounded-xl border border-orange-400/30">
+                                                    <div class="text-3xl font-bold text-orange-400">7%</div>
+                                                    <div class="text-sm text-slate-400 mt-1">Revenue Boost</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                
+                                
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <style>
+                .glass-card {
+                    background: rgba(15, 23, 42, 0.6);
+                    backdrop-filter: blur(10px);
+                    border: 1px solid rgba(148, 163, 184, 0.1);
+                }
+
+                .glass-card:hover {
+                    background: rgba(15, 23, 42, 0.8);
+                }
+
+                @keyframes float {
+                    0%, 100% { transform: translateY(0px); }
+                    50% { transform: translateY(-10px); }
+                }
+
+                @keyframes flowUp {
+                    0% { stroke-dasharray: 0 1000; }
+                    100% { stroke-dasharray: 1000 0; }
+                }
+
+                .experience-card {
+                    animation: float 8s ease-in-out infinite;
+                }
+
+                .experience-card:nth-child(2n) {
+                    animation-delay: -2s;
+                }
+
+                .experience-card:nth-child(3n) {
+                    animation-delay: -4s;
+                }
+
+                
+                </style>
+
+            <!-- Fading Gradient Separator -->
+                <div class="w-1/2 h-0.5 mx-auto my-4 bg-gradient-to-r from-transparent via-amber-500 to-transparent"></div>
+             
+            
+            <!-- Projects Section -->
+            <section id="projects" class="py-24">
+                <div class="container mx-auto px-6">
+                    <div class="text-center">
+                        <h2 class="text-4xl md:text-5xl font-bold text-white mb-2 text-center leading-tight">Featured <span class="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">Projects</span></h2>
+                        <p class="text-2xl text-slate-400 mb-6 text-center leading-relaxed max-w-2xl mx-auto">A selection of work that demonstrates my capabilities.</p>
+                    </div>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="glass-card overflow-hidden fade-in">
+
+                    <!-- Clickable Image -->
+                    <div class="clickable-image" onclick="window.open('https://github.com/Nandish17022000/Analyzing-the-Viral-Spread-of-Misinformation-on-YouTube-TikTok', '_blank')">
+                        <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=1974&auto=format&fit=crop" alt="Social Media Analytics" class="w-full h-48 object-cover">
+                    </div>
+                    
+                    <div class="p-6">
+                        <!-- Clickable Title -->
+                        <h3 class="text-xl font-bold mb-2">
+                            <a href="https://github.com/Nandish17022000/Analyzing-the-Viral-Spread-of-Misinformation-on-YouTube-TikTok" 
+                               target="_blank" 
+                               class="clickable-title text-white">
+                               Misinformation spread on YouTube/TikTok on Mental Health
+                            </a>
+                        </h3>
+                                <p class="text-slate-400 mb-10">Used Python and Gemini LLM to quantify engagement drivers for mental health content, uncovering audience behavior patterns to help combat medical misinformation.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-cyan-400/10 text-cyan-300 text-sm font-medium px-2.5 py-0.5 rounded-full">LLM Analysis (Gemini Pro API)</span>
+                                    <span class="bg-cyan-400/10 text-cyan-300 text-sm font-medium px-2.5 py-0.5 rounded-full">Prompt Engineering</span>
+                                    <span class="bg-cyan-400/10 text-cyan-300 text-sm font-medium px-2.5 py-0.5 rounded-full">Statistical Modeling</span>
+                                    <span class="bg-cyan-400/10 text-cyan-300 text-sm font-medium px-2.5 py-0.5 rounded-full">EDA</span>
+                                    <span class="bg-cyan-400/10 text-cyan-300 text-sm font-medium px-2.5 py-0.5 rounded-full">Video Analysis</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    <div class="glass-card overflow-hidden fade-in">
+                    <!-- Clickable Image --><!--need to change the github link-->
+                    <div class="clickable-image" onclick="window.open('https://github.com/Nandish17022000/CKD-Predictive-Modeling', '_blank')">
+                            
+                            <video autoplay loop muted playsinline class="w-full h-48 object-cover">
+                                <source src="AI_Animation_of_Kidney_Disease.mp4" type="video/mp4">
+                                <img src="your_fallback_image.jpg" alt="Predictive Healthcare Modeling" class="w-full h-48 object-cover">
+                            </video>
+
+                    </div>
+                    
+                    <div class="p-6">
+                        <!-- Clickable Title -->
+                        <h3 class="text-xl font-bold mb-2">
+                            <a href="https://github.com/Nandish17022000/Analyzing-the-Viral-Spread-of-Misinformation-on-YouTube-TikTok" 
+                                target="_blank" 
+                                class="clickable-title text-white">
+                                Chronic Kidney Disease Predictive Modeling
+                            </a>
+                        </h3>
+                        <p class="text-slate-400 mb-4">
+                            Developed a logistic regression model for early CKD detection, using SMOTE to boost recall for positive cases from 15% to 85%, a critical improvement for minimizing false negatives in early disease diagnosis.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-cyan-400/10 text-cyan-300 text-sm font-medium px-2.5 py-0.5 rounded-full">Data Cleaning</span>
+                            <span class="bg-cyan-400/10 text-cyan-300 text-sm font-medium px-2.5 py-0.5 rounded-full">Statistics</span>
+                            <span class="bg-cyan-400/10 text-cyan-300 text-sm font-medium px-2.5 py-0.5 rounded-full">Logistic Regression</span>
+                            <span class="bg-cyan-400/10 text-cyan-300 text-sm font-medium px-2.5 py-0.5 rounded-full">Feature Engineering</span>
+                            <span class="bg-cyan-400/10 text-cyan-300 text-sm font-medium px-2.5 py-0.5 rounded-full">Pandas & NumPy</span>
+                            
+                        </div>
+                    </div>
+                    </div>
+                    
+                    <div class="glass-card overflow-hidden fade-in">
+                    <!-- Clickable Image -->
+                    <div class="clickable-image" onclick="window.open('https://github.com/Nandish17022000/Weather-on-Wheels-How-London-s-Climate-Affects-Bike-Rentals', '_blank')">
+                        <img src="London_Bike.webp" alt="Social Media Analytics" class="w-full h-48 object-cover">
+                    </div>
+                    
+                    <div class="p-6">
+                        <!-- Clickable Title -->
+                        <h3 class="text-xl font-bold mb-2">
+                            <a href="https://github.com/Nandish17022000/Weather-on-Wheels-How-London-s-Climate-Affects-Bike-Rentals" 
+                               target="_blank" 
+                               class="clickable-title text-white">
+                               Weather on Wheels
+                            </a>
+                        </h3>
+                                <p class="text-slate-400 mb-4">Analyzed the impact of weather conditions on bike rental patterns in London using Tableau for data visualization and statistical methods for insight generation.</p>
+                                <p class="text-slate-400 mb-8">View the interactive dashboard on Tableau Public.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-cyan-400/10 text-cyan-300 text-sm font-medium px-2.5 py-0.5 rounded-full">Tableau</span>
+                                    <span class="bg-cyan-400/10 text-cyan-300 text-sm font-medium px-2.5 py-0.5 rounded-full">Pandas</span>
+                                    <span class="bg-cyan-400/10 text-cyan-300 text-sm font-medium px-2.5 py-0.5 rounded-full">Data Analysis</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    <div class="glass-card overflow-hidden fade-in">
+                    <!-- Clickable Image -->
+                    <div class="clickable-image" onclick="window.open('https://github.com/Nandish17022000/From-Data-to-Dollars-Hospitality-Revenue-Insights', '_blank')">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop" alt="Business Dashboard" class="w-full h-48 object-cover">
+                    </div>
+                    
+                    <div class="p-6">
+                        <!-- Clickable Title -->
+                        <h3 class="text-xl font-bold mb-2">
+                            <a href="https://github.com/Nandish17022000/From-Data-to-Dollars-Hospitality-Revenue-Insights" 
+                               target="_blank" 
+                               class="clickable-title text-white">
+                               Hotel Revenue Optimization
+                            </a>
+                        </h3>
+                                <p class="text-slate-400 mb-4">Built an interactive Power BI dashboard with critical KPIs (RevPAR, ADR) to inform pricing strategy and drive market share recovery.</p>
+                                 <div class="flex flex-wrap gap-2">
+                                    <span class="bg-cyan-400/10 text-cyan-300 text-sm font-medium px-2.5 py-0.5 rounded-full">Power BI</span>
+                                    <span class="bg-cyan-400/10 text-cyan-300 text-sm font-medium px-2.5 py-0.5 rounded-full">DAX</span>
+                                    <span class="bg-cyan-400/10 text-cyan-300 text-sm font-medium px-2.5 py-0.5 rounded-full">KPI Dashboards</span>
+                                    <span class="bg-cyan-400/10 text-cyan-300 text-sm font-medium px-2.5 py-0.5 rounded-full">Revenue Analysis</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Fading Gradient Separator -->
+            <div class="w-1/2 h-0.5 mx-auto my-4 bg-gradient-to-r from-transparent via-amber-500 to-transparent"></div>
+
+            <!-- Contact Section -->
+            <section id="contact" class="py-24">
+                <div class="container mx-auto px-6 text-center">
+                    <h2 class="section-title text-2xl fade-in mb-8">Thank you for taking the time to review my portfolio.</h2>
+                    <h2 class="section-title text-2xl fade-in">Let's Connect</h2>
+                    <p class="section-subtitle text-xl fade-in mb-6">I'm currently seeking new opportunities. If you have a project or role in mind, I'd love to hear from you.</p>
+                    <div class="fade-in">
+                        <a href="mailto:nandishsbellad@gmail.com" class="hidden md:inline-block bg-cyan-500 text-xl text-black font-bold px-5 py-2 rounded-lg hover:bg-cyan-400 transition-all transform transition-transform duration-300 scale-100 hover:scale-125">
+                            Get in Touch
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <!-- Footer -->
+        <footer class="py-0">
+            <div class="container mx-auto px-2 text-center text-slate-400">
+                <div class="flex justify-center space-x-6 mb-4">
+                    <a href="https://www.linkedin.com/in/nandishsbellad" target="_blank" rel="noopener noreferrer" class="text-slate-50 text-xl hover:text-cyan-400 transform transition-transform duration-300 scale-100 hover:scale-125">LinkedIn</a>
+                    <span>&bull;</span>
+                    <a href="mailto:nandishsbellad@gmail.com" class="text-slate-50 text-xl hover:text-cyan-400  transform transition-transform duration-300 scale-100 hover:scale-125">Email</a>
+                </div>
+                <p>&copy; <span id="year"></span> Nandish Shivabasava Bellad. All Rights Reserved.</p>
+            </div>
+            
+        </footer>
+    </div>
+    
+
+
+    <script>
+        // --- Mobile Menu Toggle ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // --- Header Scroll Effect ---
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('bg-slate-900/80', 'backdrop-blur-sm', 'shadow-lg');
+            } else {
+                header.classList.remove('bg-slate-900/80', 'backdrop-blur-sm', 'shadow-lg');
+            }
+        });
+        
+        // --- Set current year in footer ---
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // --- Intersection Observer for fade-in animations ---
+        const faders = document.querySelectorAll('.fade-in');
+        const appearOptions = {
+            threshold: 0.2,
+            rootMargin: "0px 0px -50px 0px"
+        };
+        const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                } else {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, appearOptions);
+
+        faders.forEach(fader => {
+            appearOnScroll.observe(fader);
+        });
+        
+        
+    </script>
+    
+</body>
+</html>
