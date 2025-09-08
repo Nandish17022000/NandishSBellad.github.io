@@ -235,6 +235,16 @@
                 50% { transform: translateY(-8px); }
                 100% { transform: translateY(0px); }
             }
+
+             /* Style for certification icon glow on hover */
+            .cert-icon {
+                transition: all 0.3s ease;
+            }
+
+            .cert-card:hover .cert-icon {
+                transform: scale(1.1);
+                filter: drop-shadow(0 0 15px rgba(54, 234, 105, 0.7)); /* Cyan glow */
+            }
             
     </style>
 </head>
@@ -250,6 +260,7 @@
                     <a href="#skills" class="text-slate-300 hover:text-cyan-400 transform transition-transform duration-300 scale-100 hover:scale-125">Skills</a>
                     <a href="#experience" class="text-slate-300 hover:text-cyan-400 transform transition-transform duration-300 scale-100 hover:scale-125">Experience</a>
                     <a href="#projects" class="text-slate-300 hover:text-cyan-400 transform transition-transform duration-300 scale-100 hover:scale-125">Projects</a>
+                    <a href="#certifications" class="text-slate-300 hover:text-cyan-400 transform transition-transform duration-300 scale-100 hover:scale-125">Certifications</a>
                 </nav>
                 <a href="#contact" class="hidden md:inline-block bg-cyan-500 text-md text-black font-bold px-5 py-2 rounded-lg hover:bg-cyan-400 transition-all transform transition-transform duration-300 scale-100 hover:scale-125">Contact</a>
                 <button id="mobile-menu-button" class="md:hidden text-white">
@@ -272,7 +283,10 @@
                 <div class="container mx-auto px-6 fade-in">
                     <!-- Profile Picture -->
                     <div class="mb-6">
-                        <img src="my photo.jpg" alt="Nandish Shivabasava Bellad" class="w-56 h-56 rounded-full mx-auto shadow-2xl border-4 border-white/10 object-cover">
+                        <img 
+                            src="Portfolio Pic - d.png" 
+                            alt="Nandish Shivabasava Bellad" 
+                            class="w-56 h-56 rounded-full mx-auto shadow-2xl border-4 border-white/10 object-cover">
                     </div>
 
                     <!-- Name -->
@@ -285,7 +299,7 @@
 
                     <!-- Title -->
                     <p class="text-lg text-white/80 mb-6">
-                        Data Analyst | Tableau Developer
+                        Data Analyst | Business Analyst
                     </p>
 
                     <!-- Social Icons -->
@@ -373,7 +387,7 @@
                  </div>
 
                     <!-- Resume Button -->
-                    <a href="https://drive.google.com/file/d/1_8waKKBlmkD2EoC8bBYhZnw4_skBatgt/preview" target="_blank" class="resume-button inline-block border-2 px-10 py-3 rounded-full uppercase tracking-widest font-semibold">
+                    <a href="https://drive.google.com/file/d/1LARp6B4CDWEHPGJa6OmZRVXZrG1-u0xI/view?usp=sharing" target="_blank" class="resume-button inline-block border-2 px-10 py-3 rounded-full uppercase tracking-widest font-semibold">
                         View Resume
                     </a>
                 </div>
@@ -391,9 +405,12 @@
                         <p class="text-2xl text-slate-400 mb-6 text-center leading-relaxed max-w-2xl mx-auto">I treat data not as a historical record, but as a blueprint for the future.</p>
                     </div>
                     <div class="max-w-4xl mx-auto grid md:grid-cols-3 gap-10 items-center">
-                        <div class="md:col-span-1 fade-in">
-                           <img src="my photo.jpg" alt="Nandish Shivabasava Bellad" class="rounded-full shadow-lg w-full aspect-square object-cover">
-                        </div>
+                    <div class="mb-6">
+                        <img 
+                            src="Portfolio Pic - d.png" 
+                            alt="Nandish Shivabasava Bellad" 
+                            class="w-56 h-56 rounded-full mx-auto shadow-2xl border-4 border-white/10 object-cover">
+                    </div>
                         <div class="md:col-span-2 fade-in">
                             <p class="text-lg leading-relaxed text-slate-300 mb-6">
                                 Hi, I'm Nandish — a Data Analyst who transforms chaotic datasets into clear paths to profitability. With over three years of proven experience, I've consistently delivered measurable business impact: enhancing monthly revenue by 7%, reducing delivery times by 18%, and architecting solutions that directly drive organizational growth and efficiency. When data is messy and unclear, I make the path to profit crystal clear.
@@ -415,7 +432,7 @@
 <section id="education" class="py-24">
     <div class="container mx-auto px-6">
         <div class="text-center">
-            <h2 class="text-4xl md:text-5xl font-bold text-white mb-2 text-center leading-tight">Education</h2>
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-2 text-center leading-tight"><span class="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">Education</span></h2>
             <p class="text-2xl text-slate-400 mb-12 text-center leading-relaxed max-w-2xl mx-auto">My academic background and qualifications.</p>
         </div>
         <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
@@ -937,6 +954,39 @@
                 </div>
             </section>
 
+            <!-- Fading Gradient Separator -->
+            <div class="w-1/2 h-0.5 mx-auto my-4 bg-gradient-to-r from-transparent via-amber-500 to-transparent"></div>
+
+            <!-- Certifications Section -->
+            <section id="certifications" class="py-24">
+                <div class="container mx-auto px-6">
+                    <div class="text-center">
+                        <h2 class="text-4xl md:text-5xl font-bold text-white mb-2 text-center leading-tight">  <span class="bg-gradient-to-r from-red-400 to-blue-400 bg-clip-text text-transparent">Certifications</span></h2>
+                        <p class="text-2xl text-slate-400 mb-12 text-center leading-relaxed max-w-2xl mx-auto">Validation of my expertise in cloud and AI technologies.</p>
+                    </div>
+                    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
+                        <div class="glass-card cert-card p-8 fade-in flex flex-col items-center text-center">
+                            <img src="AWS-Logo-PNG-File.png" alt="AWS Logo" class="w-28 h-28 mb-4 cert-icon">
+                            <h3 class="text-xl font-bold text-orange-400 mb-2">AWS Academy Cloud Security Foundations</h3>
+                            <p class="text-lg font-semibold text-white mb-1">Issued by: AWS Academy</p>
+                            <p class="text-slate-400 mb-12">Issued on: Oct 2024</p>
+                            <a href="https://drive.google.com/file/d/1NtBnA0vyWnU7_yRSQdQrA1IM944zqDb5/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="resume-button inline-block border-2 px-6 py-2 rounded-full uppercase tracking-widest font-semibold text-sm">
+                                View Credential
+                            </a>
+                        </div>
+                        <div class="glass-card cert-card p-8 fade-in flex flex-col items-center text-center">
+                            <img src="Logo-Oracle-1.webp" alt="Oracle Logo" class="w-28 h-28 mb-4 cert-icon">
+                            <h3 class="text-xl font-bold text-orange-400 mb-2">Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate</h3>
+                            <p class="text-lg font-semibold text-white mb-1">Issued by: Oracle University</p>
+                            <p class="text-slate-400 mb-6">Issued on: Sep 2025</p>
+                            <a href="https://drive.google.com/file/d/1vlBEIPuNL4t-R0jOMYypek9HopQw6J3V/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="resume-button inline-block border-2 px-6 py-2 rounded-full uppercase tracking-widest font-semibold text-sm">
+                                View Credential
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
             <!-- Fading Gradient Separator -->
             <div class="w-1/2 h-0.5 mx-auto my-4 bg-gradient-to-r from-transparent via-amber-500 to-transparent"></div>
 
